@@ -1,0 +1,37 @@
+<div class="editor">
+  <div class="editor-header">
+    <div>
+      <h3 style="color:var(--ocean-primary);">{{ note?.id ? 'Edit Note' : 'New Note' }}</h3>
+      <p class="text-muted">{{ note?.id ? 'Update your note and save changes.' : 'Fill out the form to create a note.' }}</p>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" (click)="cancel.emit()">Cancel</button>
+      <button class="btn" (click)="onSubmit()">Save</button>
+    </div>
+  </div>
+
+  <div class="form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        class="input"
+        [value]="title()"
+        (input)="title.set($any($event.target).value)"
+        placeholder="Note title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        class="input"
+        rows="10"
+        [value]="content()"
+        (input)="content.set($any($event.target).value)"
+        placeholder="Write your note content..."
+      ></textarea>
+    </div>
+  </div>
+</div>

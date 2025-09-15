@@ -1,0 +1,40 @@
+<section class="notes-layout">
+  <div class="surface list-panel">
+    <div class="panel-header">
+      <div>
+        <h2>My Notes</h2>
+        <p class="text-muted">Create, view, edit, and organize your notes.</p>
+      </div>
+      <button class="btn" (click)="onAddNew()">
+        <span>＋</span> New Note
+      </button>
+    </div>
+
+    <div class="panel-body">
+      <div *ngIf="loading()" class="text-muted">Loading notes…</div>
+      <div *ngIf="!!error()" class="text-muted" style="color: var(--ocean-error);">{{ error() }}</div>
+
+      <app-notes-list
+        [notes]="notes()"
+        (view)="onView($event)"
+        (edit)="onEdit($event)"
+        (delete)="onDelete($event)"
+      ></app-notes-list>
+    </div>
+  </div>
+
+  <div class="surface editor-panel" *ngIf="showEditor()">
+    <app-note-editor
+      [note]="editingNote()"
+      (cancel)="onEditorClose()"
+      (save)="onEditorSave($event)"
+    ></app-note-editor>
+  </div>
+
+  <div class="detail-drawer" [class.open]="!!selectedNote()">
+    <div class="drawer-content surface" *ngIf="selectedNote() as sn">
+      <app-note-detail [note]="sn" (close)="closeDetails()"></app-note-detail>
+    </div>
+    <div class="backdrop" (click)="closeDetails()" *ngIf="selectedNote()"></div>
+  </div>
+</section>

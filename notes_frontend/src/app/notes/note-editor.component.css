@@ -1,0 +1,5 @@
+.editor { display:flex; flex-direction: column; gap: 16px; }
+.editor-header { display:flex; align-items:flex-start; justify-content:space-between; }
+.actions { display:flex; gap:8px; }
+.form { display:flex; flex-direction:column; gap: 12px; }
+.form-group { display:flex; flex-direction:column; gap: 6px; }

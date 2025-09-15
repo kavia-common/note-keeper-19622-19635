@@ -1,0 +1,13 @@
+.notes-list { display: flex; flex-direction: column; gap: 10px; }
+.note-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+}
+.note-row:hover { border-color: rgba(30,58,138,0.25); }
+.note-main { cursor: pointer; }
+.note-title { font-weight: 700; margin-bottom: 4px; }
+.note-actions { display: flex; gap: 8px; }
+.empty-state { padding: 24px; text-align: center; border: 1px dashed rgba(17,24,39,0.2); }

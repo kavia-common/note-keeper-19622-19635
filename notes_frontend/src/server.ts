@@ -13,15 +13,12 @@ const app = express();
 const commonEngine = new CommonEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
+ * Note: This file configures SSR and static file serving.
+ * The frontend expects a backend at NG_APP_API_BASE_URL (see README and assets/env.js).
+ * Consider using a reverse proxy mapping /api to the notes_database service.
  *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Example (optional):
+ * app.use('/api', proxy('http://backend-host:4001/api'));
  */
 
 /**

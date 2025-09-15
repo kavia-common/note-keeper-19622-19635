@@ -1,0 +1,16 @@
+<div class="detail">
+  <div class="detail-header">
+    <div>
+      <div class="badge">Detail</div>
+      <h3 style="color:var(--ocean-primary);">{{ note.title || 'Untitled' }}</h3>
+      <div class="text-muted" style="font-size:.85rem;">
+        Created {{ format(note.createdAt) }} • Updated {{ format(note.updatedAt || note.createdAt) }}
+      </div>
+    </div>
+    <button class="btn ghost" (click)="close.emit()">Close</button>
+  </div>
+
+  <div class="detail-content">
+    <pre>{{ note.content || 'No content' }}</pre>
+  </div>
+</div>
